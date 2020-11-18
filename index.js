@@ -1,10 +1,8 @@
-const express = require("express");
 const puppeteer = require('puppeteer-extra')
 const TelegramBot = require("node-telegram-bot-api");
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 const bot = new TelegramBot("1443586170:AAHZOllN8MkJLRYuw8xE3lsk-IBxJ1eR66I", { polling: true });
 
-const app = express();
 puppeteer.use(StealthPlugin());
 
 let video_m3u8_array = [];
@@ -69,8 +67,3 @@ function pegaString(str, first_character, last_character)
 }
 
 main();
-
-const porta = process.env.PORT || 8080;
-app.listen(port, () => {
-    console.log(`OK : localhost:${porta}`);
-});
