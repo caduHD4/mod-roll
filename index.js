@@ -27,6 +27,7 @@ async function mastervideo(url)
         await sleep(9000);  
 
         const body = await page.$eval('body', e => e.outerHTML);
+        console.log(body)
         const video_config_media = JSON.parse(pegaString(body, "vilos.config.media = ", ";"));
 
         for (var i = 0; i < video_config_media['streams'].length; i++) 
