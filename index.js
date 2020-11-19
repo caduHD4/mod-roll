@@ -21,33 +21,35 @@ async function mastervideo(url)
 {
     console.log(url, id);
 
-    puppeteer.launch({ headless: true, args: ['--no-sandbox']}).then(async browser => {
+    puppeteer.launch({ headless: true, args: ['--no-sandbox']}).then(async browser => 
+    {
         const page = await browser.newPage();
         await page.goto(url, { waitUntil: 'load', timeout: 0 });
-        await sleep(9000);  
+        await sleep(5000);  
 
         const body = await page.$eval('body', e => e.outerHTML);
-        console.log(body)
         const video_config_media = JSON.parse(pegaString(body, "vilos.config.media = ", ";"));
 
         for (var i = 0; i < video_config_media['streams'].length; i++) 
         {
             if (video_config_media['streams'][i].format == 'trailer_hls' && video_config_media['streams'][i].hardsub_lang == "ptBR") 
             {
+                console.log(video_config_media['streams'][i].url);
+
                 video_m3u8_array.push(video_config_media['streams'][i].url.replace("clipTo/120000/", "clipTo/" + video_config_media['metadata']['duration'] + "/").replace(video_config_media['streams'][i].url.split("/")[2], "dl.v.vrv.co"));
             }
         }
 
-        if(video_config_media != null || video_config_media != undefined)
-        {
-            const duration = Math.ceil( video_config_media.metadata.duration / 60000 );
-            bot.sendPhoto(id, video_config_media.thumbnail.url, {
-                caption:`Episodio: ${video_config_media.metadata.title} - ${video_config_media.metadata.episode_number}\nDuração: ${duration} Minutos\n<a href="${video_m3u8_array[0]}">Anime FULL HD - Legenda: pt-BR</a>\n<a href="${video_m3u8_array[4]}">Anime 420p - Legenda: pt-BR</a>`,
-                parse_mode: 'HTML'
-            });
-        } else {
-            bot.sendMessage(id, 'Anime não encontrado!');
-        }
+        // if(video_config_media != null || video_config_media != undefined)
+        // {
+        //     const duration = Math.ceil( video_config_media.metadata.duration / 60000 );
+        //     bot.sendPhoto(id, video_config_media.thumbnail.url, {
+        //         caption:`<a href="${video_m3u8_array[4]}">Anime 420p - Legenda: pt-BR</a> \n${video_m3u8_array[4]}`,
+        //         parse_mode: 'HTML'
+        //     });
+        // } else {
+        //     bot.sendMessage(id, 'Anime não encontrado!');
+        // }
     });
 }
 
