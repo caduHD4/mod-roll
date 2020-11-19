@@ -30,15 +30,16 @@ async function mastervideo(url)
         const body = await page.$eval('body', e => e.outerHTML);
         const video_config_media = JSON.parse(pegaString(body, "vilos.config.media = ", ";"));
 
-        for (var i = 0; i < video_config_media['streams'].length; i++) 
-        {
-            if (video_config_media['streams'][i].format == 'trailer_hls' && video_config_media['streams'][i].hardsub_lang == "ptBR") 
-            {
-                console.log(video_config_media['streams'][i].url);
+        console.log(body);
+        // for (var i = 0; i < video_config_media['streams'].length; i++) 
+        // {
+        //     if (video_config_media['streams'][i].format == 'trailer_hls' && video_config_media['streams'][i].hardsub_lang == "ptBR") 
+        //     {
+        //         console.log(video_config_media['streams'][i].url);
 
-                video_m3u8_array.push(video_config_media['streams'][i].url.replace("clipTo/120000/", "clipTo/" + video_config_media['metadata']['duration'] + "/").replace(video_config_media['streams'][i].url.split("/")[2], "dl.v.vrv.co"));
-            }
-        }
+        //         video_m3u8_array.push(video_config_media['streams'][i].url.replace("clipTo/120000/", "clipTo/" + video_config_media['metadata']['duration'] + "/").replace(video_config_media['streams'][i].url.split("/")[2], "dl.v.vrv.co"));
+        //     }
+        // }
 
         // if(video_config_media != null || video_config_media != undefined)
         // {
