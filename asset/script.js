@@ -2,6 +2,8 @@ window.addEventListener("message", function (e)
 {
 	let video_config_media = JSON.parse(e.data.video_config_media);
 	let user_lang = e.data.lang;
+	
+	console.log(user_lang);
 
 	let video_stream_url = "";
 	let video_id = video_config_media['metadata']['id'];
