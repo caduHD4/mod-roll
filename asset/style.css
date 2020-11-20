@@ -12,10 +12,10 @@ video {
 }
 
 .jw-progress {
-	background-color: rgb(244, 117, 33)!important;
+	background-color: rgb(244, 117, 33) !important;
 }
 
 #player_div {
 	position: absolute;
-	height: 100%!important;
+	height: 100% !important;
 }

@@ -1,22 +1,21 @@
 window.addEventListener("message", function (e) 
 {
-	var video_config_media = JSON.parse(e.data.video_config_media);
-	var user_lang = e.data.lang;
+	let video_config_media = JSON.parse(e.data.video_config_media);
+	let user_lang = e.data.lang;
 
-	console.log(video_config_media);
-
-	var video_stream_url = "";
-	var video_id = video_config_media['metadata']['id'];
-	var rows_number = 0;
-	var video_m3u8_array = [];
+	let video_stream_url = "";
+	let video_id = video_config_media['metadata']['id'];
+	let rows_number = 0;
+	let video_m3u8_array = [];
 
 	for (var i = 0; i < video_config_media['streams'].length; i++) 
 	{
-		console.log(video_config_media['streams'][i].format , video_config_media['streams'][i].hardsub_lang);
 
 		if (video_config_media['streams'][i].format == 'trailer_hls' && video_config_media['streams'][i].hardsub_lang == user_lang)
 		{
-			if (rows_number <= 4) {
+			if (rows_number <= 4) 
+			{
+				console.log(video_config_media['streams'][i].format, video_config_media['streams'][i].hardsub_lang);
 				video_m3u8_array.push(video_config_media['streams'][i].url.replace("clipTo/120000/", "clipTo/" + video_config_media['metadata']['duration'] + "/").replace(video_config_media['streams'][i].url.split("/")[2], "dl.v.vrv.co"));
 				rows_number++;
 			}
