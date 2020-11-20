@@ -37,8 +37,9 @@ const playerJS = (html) => {
 	ifrm.setAttribute("allowfullscreen","allowfullscreen");
 	ifrm.setAttribute("allow","autoplay; encrypted-media *");
 
-	
-	if(document.body.querySelector("#showmedia_video_box") != null){
+
+	if(document.body.querySelector("#showmedia_video_box") != null)
+	{
 		document.body.querySelector("#showmedia_video_box").appendChild(ifrm);
 	}else{
 		document.body.querySelector("#showmedia_video_box_wide").appendChild(ifrm);
