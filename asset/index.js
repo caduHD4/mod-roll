@@ -1,5 +1,5 @@
-window.addEventListener("message", function (e) {
-
+window.addEventListener("message", function (e) 
+{
 	var video_config_media = JSON.parse(e.data.video_config_media);
 	var user_lang = e.data.lang;
 
@@ -10,6 +10,8 @@ window.addEventListener("message", function (e) {
 
 	for (var i = 0; i < video_config_media['streams'].length; i++) 
 	{
+		console.log(video_config_media['streams'][i].format , video_config_media['streams'][i].hardsub_lang);
+
 		if (video_config_media['streams'][i].format == 'trailer_hls' && video_config_media['streams'][i].hardsub_lang == user_lang)
 		{
 			if (rows_number <= 4) {
@@ -24,7 +26,7 @@ window.addEventListener("message", function (e) {
 		}
 	}
 
-	console.log(video_m3u8_array[4]);
+	console.log(video_m3u8_array);
 
 	const playerInstance = jwplayer("player_div");
 
