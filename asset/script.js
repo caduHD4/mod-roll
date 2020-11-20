@@ -17,7 +17,7 @@ window.addEventListener("message", function (e)
 		{
 			if (rows_number <= 4) 
 			{
-				console.log(video_config_media['streams'][i].format, video_config_media['streams'][i].hardsub_lang);
+				// console.log(video_config_media['streams'][i].format, video_config_media['streams'][i].hardsub_lang);
 				video_m3u8_array.push(video_config_media['streams'][i].url.replace("clipTo/120000/", "clipTo/" + video_config_media['metadata']['duration'] + "/").replace(video_config_media['streams'][i].url.split("/")[2], "dl.v.vrv.co"));
 				rows_number++;
 			}
@@ -31,45 +31,45 @@ window.addEventListener("message", function (e)
 
 	console.log(video_m3u8_array);
 
-	// const playerInstance = jwplayer("player_div");
+	const playerInstance = jwplayer("player_div");
 
-	// playerInstance.setup({
-	// 	"file": video_m3u8_array[4],
-	// 	"image": video_config_media['thumbnail']['url'],
-	// 	"width": "100%",
-	// 	"height": "100%",
-	// 	"autostart": false,
-	// 	"displayPlaybackLabel": true,
-	// 	"primary": "html5"
-	// });
+	playerInstance.setup({
+		"file": video_m3u8_array[3],
+		"image": video_config_media['thumbnail']['url'],
+		"width": "100%",
+		"height": "100%",
+		"autostart": false,
+		"displayPlaybackLabel": true,
+		"primary": "html5"
+	});
 
-	// //Funções para o player
-	// jwplayer().on('ready', function (e) {
-	// 	//Seta o tempo do video pro salvo no localStorage		
-	// 	if (localStorage.getItem(video_id) != null) {
-	// 		document.getElementsByTagName("video")[0].currentTime = localStorage.getItem(video_id);
-	// 	}
-	// 	document.body.querySelector(".loading_container").style.display = "none";
-	// });
-	// //Mostra uma tela de erro caso a legenda pedida não exista.
-	// jwplayer().on('error', function (e) {
-	// 	if (e.code == 232011) {
-	// 		jwplayer().load({
-	// 			file: "https://i.imgur.com/OufoM33.mp4"
-	// 		});
-	// 		jwplayer().setControls(false);
-	// 		jwplayer().setConfig({
-	// 			repeat: true
-	// 		});
-	// 		jwplayer().play();
-	// 	}
-	// });
-	// //Fica salvando o tempo do video a cada 5 segundos.
-	// const save_player_time_interval = setInterval(function () {
-	// 	if (jwplayer().getState() == "playing") {
-	// 		localStorage.setItem(video_id, jwplayer().getPosition());
-	// 	}
-	// }, 5000);
+	//Funções para o player
+	jwplayer().on('ready', function (e) {
+		//Seta o tempo do video pro salvo no localStorage		
+		if (localStorage.getItem(video_id) != null) {
+			document.getElementsByTagName("video")[0].currentTime = localStorage.getItem(video_id);
+		}
+		document.body.querySelector(".loading_container").style.display = "none";
+	});
+	//Mostra uma tela de erro caso a legenda pedida não exista.
+	jwplayer().on('error', function (e) {
+		if (e.code == 232011) {
+			jwplayer().load({
+				file: "https://i.imgur.com/OufoM33.mp4"
+			});
+			jwplayer().setControls(false);
+			jwplayer().setConfig({
+				repeat: true
+			});
+			jwplayer().play();
+		}
+	});
+	//Fica salvando o tempo do video a cada 5 segundos.
+	const save_player_time_interval = setInterval(function () {
+		if (jwplayer().getState() == "playing") {
+			localStorage.setItem(video_id, jwplayer().getPosition());
+		}
+	}, 5000);
 
 
 });

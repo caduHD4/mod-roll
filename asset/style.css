@@ -19,3 +19,8 @@ video {
 	position: absolute;
 	height: 100% !important;
 }
+
+.loading_container {
+	padding: 10px;
+	margin: 10px;
+}
