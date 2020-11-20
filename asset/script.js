@@ -1,5 +1,7 @@
 window.addEventListener("message", function (e) 
 {
+	console.log(JSON.parse(e.data.video_config_media));
+	
 	let video_config_media = JSON.parse(e.data.video_config_media);
 	let user_lang = 'ptBR';
 
