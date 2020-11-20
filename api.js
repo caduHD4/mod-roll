@@ -9,7 +9,6 @@
 // @require      https://code.jquery.com/jquery-3.5.1.min.js
 // ==/UserScript==
 
-
 $(document).ready(function()
 {	
 	const html = document.getElementsByTagName('body')[0].innerHTML;
@@ -23,32 +22,30 @@ const playerJS = (html) => {
 	
 	const player = document.getElementById('showmedia_video_player');
 	player.parentNode.removeChild(player);
-
 	const config_media = JSON.parse(string(html, "vilos.config.media = ", ";"));
 
-	let ifrm;
-	ifrm = document.createElement("iframe");
-	ifrm.setAttribute("id", "frame"); 
-	ifrm.setAttribute("src", "https://codevinc.github.io/video_player_CC/"); 
-	ifrm.setAttribute("width","100%");
-	ifrm.setAttribute("height","100%");
-	ifrm.setAttribute("frameborder","0");
-	ifrm.setAttribute("scrolling","no");
-	ifrm.setAttribute("allowfullscreen","allowfullscreen");
-	ifrm.setAttribute("allow","autoplay; encrypted-media *");
+	let frame;
+	frame = document.createElement("iframe");
+	frame.setAttribute("id", "frame"); 
+	frame.setAttribute("src", "https://codevinc.github.io/video_player_CC/"); 
+	frame.setAttribute("width","100%");
+	frame.setAttribute("height","100%");
+	frame.setAttribute("frameborder","0");
+	frame.setAttribute("scrolling","no");
+	frame.setAttribute("allowfullscreen","allowfullscreen");
+	frame.setAttribute("allow","autoplay; encrypted-media *");
 
 
 	if(document.body.querySelector("#showmedia_video_box") != null)
 	{
-		document.body.querySelector("#showmedia_video_box").appendChild(ifrm);
-	}else{
-		document.body.querySelector("#showmedia_video_box_wide").appendChild(ifrm);
+		document.body.querySelector("#showmedia_video_box").appendChild(frame);
+	} else {
+		document.body.querySelector("#showmedia_video_box_wide").appendChild(frame);
 	}
 
 	ifrm.onload = function(){
-		ifrm.contentWindow.postMessage({
-       		'video_config_media': [JSON.stringify(config_media)],
-       		'lang': [string(html, 'LOCALE = "', '",')]
+		frame.contentWindow.postMessage({
+       		'video_config_media': [JSON.stringify(config_media)]
     	},"*");
     };
 }
@@ -60,5 +57,3 @@ function string(str, first_character, last_character) {
 	    return str.match(first_character + "(.*)" + last_character)[1].trim()
     }
 }
-
-// <iframe src="https://static.crunchyroll.com/vilos-v2/web/vilos/player.html" id="vilos-player" allowfullscreen="allowfullscreen" allow="autoplay; encrypted-media *" width="100%" height="100%" frameborder="0"></iframe>
