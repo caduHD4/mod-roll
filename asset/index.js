@@ -24,6 +24,8 @@ window.addEventListener("message", function (e) {
 		}
 	}
 
+	console.log(video_m3u8_array[4]);
+
 	const playerInstance = jwplayer("player_div");
 
 	playerInstance.setup({
