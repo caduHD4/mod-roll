@@ -79,7 +79,7 @@ window.addEventListener("message", function (e)
 		document.body.querySelector(".footer").style.display = "none";
 	});
 
-	document.body.querySelector(".fechar").click(function(){
+	$(".fechar").click(function() {
 		document.body.querySelector(".paypal-content").style.display = "none";
 		jwplayer().play()
 	});
