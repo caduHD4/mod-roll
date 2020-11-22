@@ -4,10 +4,10 @@ body {
 	color: white;
 	font-size: large;
 	background-color: #000;
-    font-family: Arial, sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 	-webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 video {
@@ -15,7 +15,7 @@ video {
 }
 
 .jw-progress {
-	background-color: red !important;
+	background-color: rgb(244, 117, 33) !important;
 }
 
 #player_div {
@@ -33,21 +33,50 @@ video {
 	color: white;
 	text-align: center;
 }
-.piscar {
-	-webkit-animation: piscar 1000ms linear infinite;
-	-moz-animation: piscar 1000ms linear infinite;
-	-ms-animation: piscar 1000ms linear infinite;
-	-o-animation: piscar 1000ms linear infinite;
-	animation: piscar 1000ms linear infinite;
+.pisca {
+	-webkit-animation: pisca 1000ms linear infinite;
+	-moz-animation: pisca 1000ms linear infinite;
+	-ms-animation: pisca 1000ms linear infinite;
+	-o-animation: pisca 1000ms linear infinite;
+	animation: pisca 1000ms linear infinite;
 }
 
-@keyframes piscar {
+.paypal-content {
+	width: 100%;
+	overflow-x: hidden;
+	margin-top: 5em;
+	color: rgba(0, 0, 0, 0.801);
+	justify-content: center;
+	text-align: center;
+	display: none;
+}
+.paypal-content .fechar {
+	background-color: black;
+	height: 20px;
+	width: 20px;
+	top: 2px;
+	left: 21.5em;
+	border-radius: 1em;
+	display: inline;
+	position: relative;
+	color: red;
+	cursor: pointer;
+	user-select: none;
+}
+.paypal-text {
+	width: 20em;
+	background-color: white;
+	padding: 1em;
+	border-radius: 1em;
+}
+
+@keyframes pisca {
 	0% { opacity: 1; }
 	100% { opacity: 0; }
 }
 
 .footer {
-	padding-left: 1em;
+	left: 1em;
 	text-align: center;
 	bottom: 10px;
 	position: fixed;
