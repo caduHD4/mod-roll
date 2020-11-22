@@ -58,15 +58,6 @@ window.addEventListener("message", function (e)
 		"primary": "html5"
 	});
 
-	jwplayer().on('pause');
-	{
-		document.body.querySelector(".paypal-content").style.display = "flex";
-	}
-	jwplayer().on('play');
-	{
-		document.body.querySelector(".paypal-content").style.display = "none";
-	}
-
 	jwplayer().on('ready', function (e) 
 	{	
 		if (localStorage.getItem(video_id) != null) 
@@ -75,19 +66,16 @@ window.addEventListener("message", function (e)
 		}
 
 		document.body.querySelector(".paypal-content").style.display = "flex";
+
 		document.body.querySelector(".main-content").style.display = "none";
 		document.body.querySelector(".footer").style.display = "none";
-	});
-
-	$(".fechar").click(function() {
-		document.body.querySelector(".paypal-content").style.display = "none";
-		jwplayer().play()
 	});
 
 	setInterval(function() 
 	{
 		if (jwplayer().getState() == "playing") 
 		{
+			document.body.querySelector(".paypal-content").style.display = "none";
 			localStorage.setItem(video_id, jwplayer().getPosition());
 		}
 	}, 3000);
