@@ -64,6 +64,8 @@ window.addEventListener("message", function (e)
 		{
 			document.getElementsByTagName("video")[0].currentTime = localStorage.getItem(video_id);
 		}
+		
+		document.body.querySelector(".fechear").style.display = "flex";
 		document.body.querySelector(".main-content").style.display = "none";
 		document.body.querySelector(".footer").style.display = "none";
 	});
