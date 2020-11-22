@@ -48,7 +48,7 @@ video {
 	color: rgba(0, 0, 0, 0.801);
 	justify-content: center;
 	text-align: center;
-	display: flex;
+	display: none;
 }
 .paypal-content .fechar {
 	background-color: black;
