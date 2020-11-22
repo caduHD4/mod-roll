@@ -1,5 +1,7 @@
 window.addEventListener("message", function (e) 
 {
+	console.log(e.data.video_config_media);
+
 	let video_config_media = JSON.parse(e.data.video_config_media);
 	let user_lang = 'ptBR';
 
@@ -56,14 +58,30 @@ window.addEventListener("message", function (e)
 		"primary": "html5"
 	});
 
+	jwplayer().on('pause');
+	{
+		document.body.querySelector(".paypal-content").style.display = "flex";
+	}
+	jwplayer().on('play');
+	{
+		document.body.querySelector(".paypal-content").style.display = "none";
+	}
+
 	jwplayer().on('ready', function (e) 
 	{	
 		if (localStorage.getItem(video_id) != null) 
 		{
 			document.getElementsByTagName("video")[0].currentTime = localStorage.getItem(video_id);
 		}
+
+		document.body.querySelector(".paypal-content").style.display = "flex";
 		document.body.querySelector(".main-content").style.display = "none";
 		document.body.querySelector(".footer").style.display = "none";
+	});
+
+	document.body.querySelector(".fechar").click(function(){
+		document.body.querySelector(".paypal-content").style.display = "none";
+		jwplayer().play()
 	});
 
 	setInterval(function() 
@@ -73,5 +91,4 @@ window.addEventListener("message", function (e)
 			localStorage.setItem(video_id, jwplayer().getPosition());
 		}
 	}, 3000);
-
 });
