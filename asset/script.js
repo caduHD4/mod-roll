@@ -64,9 +64,6 @@ window.addEventListener("message", function (e)
 		{
 			document.getElementsByTagName("video")[0].currentTime = localStorage.getItem(video_id);
 		}
-
-		document.body.querySelector(".paypal-content").style.display = "flex";
-
 		document.body.querySelector(".main-content").style.display = "none";
 		document.body.querySelector(".footer").style.display = "none";
 	});
@@ -75,7 +72,6 @@ window.addEventListener("message", function (e)
 	{
 		if (jwplayer().getState() == "playing") 
 		{
-			document.body.querySelector(".paypal-content").style.display = "none";
 			localStorage.setItem(video_id, jwplayer().getPosition());
 		}
 	}, 3000);
