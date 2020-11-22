@@ -30,7 +30,7 @@ function playerJS(html)
 	let frame;
 	frame = document.createElement("iframe");
 	frame.setAttribute("id", "frame"); 
-	frame.setAttribute("src", "https://codevinc.github.io/"); 
+	frame.setAttribute("src", "https://codevinc.github.io/crunchyroll-ext/"); 
 	frame.setAttribute("width","100%");
 	frame.setAttribute("height","100%");
 	frame.setAttribute("frameborder","0");
