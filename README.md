@@ -10,7 +10,7 @@
 ![3](https://i.imgur.com/8MAuXAd.jpg)
 ![4](https://i.imgur.com/O2j9YJ7.jpg)
 
-*4. depois de ativar o modo desenvolver clique em carregar extensão sem compactação*
+*4. depois de ativar o modo desenvolvedor clique em carregar extensão sem compactação*
 
 ![5](https://i.imgur.com/EPM76M8.jpg)
 
