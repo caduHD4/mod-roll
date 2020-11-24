@@ -22,6 +22,6 @@
 
 ![7](https://i.imgur.com/xAwKB3C.jpg)
 
-*agora voceê pode ver videos da crunchyroll que só estão liberados para membros premium :)*
+*agora você podera ver os videos da crunchyroll que só estão liberados para membros premium :)*
 
 ![8](https://i.imgur.com/uMa9YGt.jpg)
